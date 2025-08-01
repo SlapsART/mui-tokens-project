@@ -1,6 +1,10 @@
 // src/theme/theme.ts
 import { createTheme } from '@mui/material/styles';
-import { tokens } from './tokens.json';
+import { palette } from './palette';
+import { typography } from './typography';
+import { spacingUnit } from './spacing';
+/*import tokensData from './tokens.json';
+const { tokens } = tokensData;
 
 export const theme = createTheme({
   palette: {
@@ -22,4 +26,12 @@ export const theme = createTheme({
             },
         },
     }
-)
+)*/
+
+// theme.ts
+export const theme = createTheme({
+    
+  palette,
+  typography,
+  spacing: spacingUnit, // ejemplo: 8
+});

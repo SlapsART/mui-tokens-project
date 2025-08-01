@@ -1,39 +1,36 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Box, Button, Drawer } from '@mui/material';
-import { tokens } from '../src/theme/tokens.json';
+import {theme} from '../src/theme/theme';
+import { paddings, gaps } from './theme/spacing';
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
 
   return (
-    <Box display={'flex'} alignContent={'center'} justifyContent={'center'} marginTop={50} gap={2}>
+    <Box display={'flex'} alignContent={'center'} justifyContent={'center'} marginTop={50} gap={gaps['5Gap']}>
       <Button
         color='primary'
         variant='contained'
         sx={
             {
               borderRadius: 6,
-              backgroundColor: tokens.paletteLight.primary.main,
-              py: tokens.paletteLight.padding.vertical.button.large,
-              px: tokens.paletteLight.padding.horizontal.button.large
+              backgroundColor: theme.palette.primary.main,
+              padding: paddings.padding['1,5 p']
             }
           }>
         Click Me
       </Button>
       <Button
         onClick={openDrawer}
-        variant='text'
+        variant='outlined'
         color='primary'
           sx={
             {
               borderRadius: 6,
-              color: tokens.paletteLight.primary.main,
-              py: tokens.paletteLight.padding.vertical.button.large,
-              px: tokens.paletteLight.padding.horizontal.button.large
+              color: theme.palette.primary.main,
             }}>
         Drawer
       </Button>
@@ -41,9 +38,7 @@ const App: React.FC = () => {
         <Box
           sx={{
             width: 250,
-            backgroundColor: tokens.paletteLight.background.Paper,
-            color: tokens.paletteLight.text.primary,
-            padding: 6
+            padding: paddings.padding['3p']
           }}
         >
           <h2>Drawer Content</h2>
